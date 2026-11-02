@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Calendario de Adviento Especial ✨</title>
+  
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/index.CSS">
+</head>
+<body>
+
+  <!-- CINEMÁTICA DE DÉJÀ VU / OLVIDO TOTAL -->
+  <div id="oblivionOverlay" class="oblivion-overlay hidden">
+    <div class="oblivion-flash"></div>
+    <div class="oblivion-content">
+      <div class="neuralyzer-beam">✨🌀✨</div>
+      <p class="oblivion-text">Déjà Vu...<br><span>Olvido total iniciado... Reiniciando el tiempo ❤️</span></p>
+    </div>
+  </div>
+
+  <!-- BARRA DE PROGRESO DE NAVEGACIÓN -->
+  <div class="progress-bar-container" id="progressBarContainer">
+    <div class="progress-info">
+      <span>Progreso del Calendario ❤️</span>
+      <span id="progressPercentage">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <!-- PANTALLA INICIAL -->
+  <section class="hero-section" id="hero">
+    <div class="snoopy-container" id="snoopyStart">
+      <div class="floating-wrapper">
+        <img src="../imagenes/Snoppy_corazon.jpg.jpg" alt="Snoopy Abrazando Corazón" class="snoopy-img blend-multiply interactive-img">
+      </div>
+      <h1 class="clickable-title">Holaaa, dame click, es una sorpresa ❤️</h1>
+    </div>
+  </section>
+
+  <!-- MODAL INTERACTIVO DE BIENVENIDA -->
+  <div class="modal-overlay hidden" id="welcomeModal">
+    <div class="modal-card">
+      <p class="modal-text">
+        Holaaa, ¿cómo estás? Espero estés muyyy bien. Te he preparado un Calendario de Adviento especial del 2 al 6 de Noviembre. ¿Lista para comenzar? ✨
+      </p>
+      <div class="buttons-container">
+        <button id="btnYes" class="btn btn-yes">¡Sí, claro!</button>
+        <button id="btnNo" class="btn btn-no">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="content-section hidden" id="mainContent">
+
+    <!-- VISTA GENERAL: HUB CENTRAL DEL CALENDARIO DE ADVIENTO -->
+    <section class="advent-hub-section" id="adventHub">
+      <h2 class="advent-main-title">🗓️ Tu Calendario de Adviento 💖</h2>
+      <p class="advent-main-subtitle">Cada día de esta semana (2 al 6 de Noviembre) se desbloqueará una sorpresa especial para ti:</p>
+
+      <div class="advent-grid">
+        <!-- Día 1: Lunes 2 de Noviembre -->
+        <div class="advent-door-card locked" id="door1" onclick="openAdventDay(1)">
+          <div class="door-header">
+            <span class="day-badge">Día 1</span>
+            <span class="day-name">Lunes 2 Nov</span>
+          </div>
+          <div class="door-status-icon">🔒</div>
+          <h3 class="door-title">Cómo empezó todo... 💘</h3>
+          <p class="door-hint" id="hint1">Calculando...</p>
+        </div>
+
+        <!-- Día 2: Martes 3 de Noviembre -->
+        <div class="advent-door-card locked" id="door2" onclick="openAdventDay(2)">
+          <div class="door-header">
+            <span class="day-badge">Día 2</span>
+            <span class="day-name">Martes 3 Nov</span>
+          </div>
+          <div class="door-status-icon">🔒</div>
+          <h3 class="door-title">Tengo algo que decirte 💌</h3>
+          <p class="door-hint" id="hint2">Calculando...</p>
+        </div>
+
+        <!-- Día 3: Miércoles 4 de Noviembre -->
+        <div class="advent-door-card locked" id="door3" onclick="openAdventDay(3)">
+          <div class="door-header">
+            <span class="day-badge">Día 3</span>
+            <span class="day-name">Miércoles 4 Nov</span>
+          </div>
+          <div class="door-status-icon">🔒</div>
+          <h3 class="door-title">Razones para sonreír 🌹</h3>
+          <p class="door-hint" id="hint3">Calculando...</p>
+        </div>
+
+        <!-- Día 4: Jueves 5 de Noviembre -->
+        <div class="advent-door-card locked" id="door4" onclick="openAdventDay(4)">
+          <div class="door-header">
+            <span class="day-badge">Día 4</span>
+            <span class="day-name">Jueves 5 Nov</span>
+          </div>
+          <div class="door-status-icon">🔒</div>
+          <h3 class="door-title">Tus Fascinaciones ✨</h3>
+          <p class="door-hint" id="hint4">Calculando...</p>
+        </div>
+
+        <!-- Día 5: Viernes 6 de Noviembre -->
+        <div class="advent-door-card locked" id="door5" onclick="openAdventDay(5)">
+          <div class="door-header">
+            <span class="day-badge">Día 5</span>
+            <span class="day-name">Viernes 6 Nov</span>
+          </div>
+          <div class="door-status-icon">🔒</div>
+          <h3 class="door-title">La Sorpresa Final 🗺️❤️</h3>
+          <p class="door-hint" id="hint5">Calculando...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÍA 1 / SECCIÓN 1: CÓMO EMPEZÓ TODO -->
+    <section class="section-container day-section hidden" id="day1Content">
+      <div class="day-banner-header">
+        <button class="btn-back-hub" onclick="backToHub()">⬅️ Volver a la Vista General</button>
+        <span class="day-tag">Día 1 - Lunes 2 de Noviembre</span>
+      </div>
+
+      <div class="section-header">
+        <a href="#mensaje" class="card-img-wrapper" title="Snoopy Cupido">
+          <img src="../imagenes/631418810294574601.jpg" alt="Snoopy Cupido" class="step-img blend-multiply interactive-img">
+        </a>
+        <h2 class="section-title">Cómo empezó todo... 💘</h2>
+      </div>
+
+      <div class="cards-grid">
+        <div class="story-card interactive-card">
+          <span class="card-number">01</span>
+          <p>Todo empezó un día cualquiera: un día te pedí una tarea sin saber que llegaría a cautivarme tu manera de ser y, más aún, tu grandiosa belleza. ✨</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">02</span>
+          <p>No pensé que con ello también vendrían días de incertidumbre e inseguridades, y algunas veces pensé en rendirme... 💭</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">03</span>
+          <p>¿Pero sabes algo? Me alegra enormemente no haberlo hecho. Vale la pena cada instante a tu lado. ❤️</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">04</span>
+          <p>Todo comenzó como dos extraños y ahora que no lo somos, quiero decirte todo lo que siento por ti. 🌹</p>
+        </div>
+      </div>
+
+      <div class="acrostic-container">
+        <h3 class="acrostic-title">Una palabra para ti... ✨</h3>
+        <div class="acrostic-list">
+          <div class="acrostic-item"><span class="letter">C</span>ada momento a tu lado me demostró lo especial que eres.</div>
+          <div class="acrostic-item"><span class="letter">I</span>luminas mis días con solo una sonrisa tuya.</div>
+          <div class="acrostic-item"><span class="letter">E</span>ncontré en ti esa belleza y esencia que me enamoró.</div>
+          <div class="acrostic-item"><span class="letter">L</span>uché contra toda duda porque tu presencia lo vale todo.</div>
+          <div class="acrostic-item"><span class="letter">O</span>jalá caminemos juntos por mucho tiempo más.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÍA 2 / SECCIÓN 2: TENGO ALGO QUE DECIRTE -->
+    <section class="section-container day-section hidden" id="day2Content">
+      <div class="day-banner-header">
+        <button class="btn-back-hub" onclick="backToHub()">⬅️ Volver a la Vista General</button>
+        <span class="day-tag">Día 2 - Martes 3 de Noviembre</span>
+      </div>
+
+      <div class="section-header">
+        <a href="#razones" class="card-img-wrapper" title="Snoopy con carta">
+          <img src="../imagenes/701646816987696290.jpg" alt="Snoopy con carta" class="step-img blend-multiply interactive-img">
+        </a>
+        <h2 class="section-title">Tengo algo que decirte 💌</h2>
+      </div>
+
+      <div class="orbit-wrapper">
+        <p class="orbit-hint">✨ Los poemas giran y cambian como magia... ✨</p>
+        <div class="orbit-stage">
+          <div class="orbit-center"><span>💖</span></div>
+          <div class="orbit-ring" id="poemRing">
+            <div class="poem-card pos-1"><p class="poem-text"></p></div>
+            <div class="poem-card pos-2"><p class="poem-text"></p></div>
+            <div class="poem-card pos-3"><p class="poem-text"></p></div>
+            <div class="poem-card pos-4"><p class="poem-text"></p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergamino-container">
+        <div class="pergamino-seal" id="pergaminoBtn1">
+          <div class="seal-icon">📜</div>
+          <div class="seal-text">
+            <h3>Una carta guardada para ti</h3>
+            <p>Haz clic para abrir el pergamino 💌</p>
+          </div>
+          <span class="arrow-indicator">▼</span>
+        </div>
+
+        <div class="pergamino-content" id="pergaminoLetter1">
+          <div class="pergamino-paper">
+            <div class="pergamino-border">
+              <p class="letter-text">
+                Holaaa Soy yooo, bien son demasiadas cosas que tengo que decirte y demasiadas cosas que siento por ti, sabes? me gusta mirar tus ojos, por que en ellos miro un brillo realmente hermoso y resplandeciente, me encanta estar a tu lado, disfrutando de tu compañia, asi sea en silencio, jugando, observandote o si, compartiendo un beso... jamas pense que llegaria hasta aca, pero agradezco mis decisiones y tu oportunidad... Mi Cielo, son muchas cosas que siento por ti, son miles de cosas que tengo que decir pero no me queda de mas que seguir mostrandotelo con acciones, no prometo ser perfecto, pero si prometo seguir cambiado para bien, interesarme cada segundo por lo que pienses, opines, gustes o dejes de gustar y prometo que de mi cabeza y corazón y hasta de mi alma, sera tatuado cada sentimiento que tengo por ti...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="story-card interactive-card">
+          <span class="card-number">01</span>
+          <p>Quería buscar la forma más sincera y bonita de abrir mi corazón y contarte lo mucho que me haces feliz. 💖</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">02</span>
+          <p>Hay palabras que a veces no me salen en persona, pero que mi corazón grita cada vez que te veo llegar. 💌</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">03</span>
+          <p>Eres esa bonita coincidencia que transformó mis días ordinarios en momentos llenos de ilusión. ✨</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">04</span>
+          <p>Hoy no quiero guardarme nada; quiero que sepas lo increíble que es tenerte en mi vida. 🌸</p>
+        </div>
+      </div>
+
+      <div class="acrostic-container">
+        <h3 class="acrostic-title">Lo que siento por ti... 💕</h3>
+        <div class="acrostic-list">
+          <div class="acrostic-item"><span class="letter">A</span>brazo con el alma cada recuerdo a tu lado.</div>
+          <div class="acrostic-item"><span class="letter">M</span>e haces querer dar siempre la mejor versión de mí.</div>
+          <div class="acrostic-item"><span class="letter">O</span>bservarte sonreír es mi momento favorito del día.</div>
+          <div class="acrostic-item"><span class="letter">R</span>obaste toda mi atención desde el primer instante.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÍA 3 / SECCIÓN 3: RAZONES PARA SONREÍR -->
+    <section class="section-container day-section hidden" id="day3Content">
+      <div class="day-banner-header">
+        <button class="btn-back-hub" onclick="backToHub()">⬅️ Volver a la Vista General</button>
+        <span class="day-tag">Día 3 - Miércoles 4 de Noviembre</span>
+      </div>
+
+      <div class="section-header">
+        <a href="#fascinaciones" class="card-img-wrapper" title="Snoopy con rosas">
+          <img src="../imagenes/Snoopy Love ❤.jpg" alt="Snoopy con rosas" class="step-img blend-multiply interactive-img">
+        </a>
+        <h2 class="section-title">Razones para sonreír 🌹</h2>
+      </div>
+
+      <div class="darts-game-wrapper">
+        <h3 class="game-subtitle">🎯 Lanza dardos al blanco para descubrir razones 🎯</h3>
+        <p class="game-instructions">Toca el blanco o el botón para acertar y revelar una razón especial.</p>
+        
+        <div class="darts-board-area">
+          <div class="dart-target" id="dartTarget">
+            <div class="ring outer-ring"></div>
+            <div class="ring middle-ring"></div>
+            <div class="ring inner-ring"></div>
+            <div class="bullseye">🎯</div>
+          </div>
+          <div class="flying-dart" id="flyingDart">🎯</div>
+        </div>
+
+        <button class="btn-throw-dart" id="btnThrowDart">¡Lanzar Dardo! 🎯</button>
+
+        <div class="unlocked-reasons-container" id="unlockedReasonsContainer"></div>
+      </div>
+
+      <div class="pergamino-container">
+        <div class="pergamino-seal" id="pergaminoBtn2">
+          <div class="seal-icon">📜</div>
+          <div class="seal-text">
+            <h3>Segunda carta especial para ti</h3>
+            <p>Haz clic para abrir el pergamino 💌</p>
+          </div>
+          <span class="arrow-indicator">▼</span>
+        </div>
+
+        <div class="pergamino-content" id="pergaminoLetter2">
+          <div class="pergamino-paper">
+            <div class="pergamino-border">
+              <p class="letter-text">
+                Holaaa, soy yo de nuevo... en esta quiero decirte que cada segundo contigo, cada minuto y cada hora, me dan sensaciones indescriptibles de felicidad, ganas de quererte cada momento, cuidarte y si... ser meloso contigo, por que me nace serlo y mucho mas cuando verdaderamente estoy a tu lado... No sere un principe azul, no sere un vampiro o no sere el Idol mas famoso o el mas hermoso, pero quiero ser quien te haga sonreir, reir y ser quien haga brillar cada dia mas esos hermosos ojitos que tienes mi cielo...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="orbit-100-wrapper">
+        <h3 class="orbit-100-title">✨ 100 Razones por las cuales me enamoré de ti ✨</h3>
+        <p class="orbit-100-subtitle">Toca o pasa el dedo sobre cualquier etiqueta para leerla con claridad</p>
+        
+        <div class="reasons-cloud-stage" id="reasonsCloudStage"></div>
+      </div>
+    </section>
+
+    <!-- DÍA 4 / SECCIÓN: TUS FASCINACIONES -->
+    <section class="section-container day-section hidden" id="day4Content">
+      <div class="day-banner-header">
+        <button class="btn-back-hub" onclick="backToHub()">⬅️ Volver a la Vista General</button>
+        <span class="day-tag">Día 4 - Jueves 5 de Noviembre</span>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">Tus Fascinaciones ✨</h2>
+        <p class="section-subtitle">Un pequeño rincón dedicado a las cosas que te hacen única...</p>
+      </div>
+
+      <div class="favorites-grid">
+        <div class="fav-card">
+          <div class="fav-icon">🍫</div>
+          <h4>Chocolate</h4>
+          <p>Un gusto dulce infaltable que siempre alegra tu día.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🍣</div>
+          <h4>Sushi</h4>
+          <p>Uno de tus platillos preferidos e inigualables.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🍦</div>
+          <h4>Helado de Chocolate</h4>
+          <p>Específicamente de chocolate, tu sabor favorito por excelencia.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🧛‍♂️</div>
+          <h4>Damon Salvatore</h4>
+          <p>Tu personaje favorito que nunca pasa desapercibido.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">👨‍👩‍👧</div>
+          <h4>Tiempo en Familia</h4>
+          <p>Disfrutar, reír y compartir con quienes más amas.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🏐🏀</div>
+          <h4>Volley y Baloncesto</h4>
+          <p>No te gusta el deporte en general, ¡pero te encanta jugarlos!</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">💙</div>
+          <h4>Color Azul</h4>
+          <p>Tu color favorito, lleno de paz, calma y armonía.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🐻</div>
+          <h4>Osos Pardos</h4>
+          <p>Tus animales favoritos, tiernos y especiales.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">😴</div>
+          <h4>Encanta Dormir</h4>
+          <p>Un descanso reparador para recargar tu linda energía.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">📜📺</div>
+          <h4>Poemas y Series</h4>
+          <p>Escribir versos del corazón y ver series sola o junto a tu papá.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🍂</div>
+          <h4>El Otoño</h4>
+          <p>Tu estación del año favorita con sus tonos cálidos.</p>
+        </div>
+        <div class="fav-card">
+          <div class="fav-icon">🎂</div>
+          <h4>Tu Cumpleaños</h4>
+          <p>Ese día tan especial del año donde celebramos tu existencia.</p>
+        </div>
+      </div>
+
+      <div class="fav-reflection-box">
+        <p class="fav-reflection-text">
+          Son pocas cosas que sé de ti, pero que recordaré con mucho cariño y tengo la determinación de seguir aprendiendo más de ti... ✨
+        </p>
+      </div>
+    </section>
+
+    <!-- DÍA 5 / SECCIÓN 5: LA SORPRESA FINAL, LABERINTO & PROPUESTA -->
+    <section class="section-container day-section hidden" id="day5Content">
+      <div class="day-banner-header">
+        <button class="btn-back-hub" onclick="backToHub()">⬅️ Volver a la Vista General</button>
+        <span class="day-tag">Día 5 - Viernes 6 de Noviembre</span>
+      </div>
+
+      <div class="section-header">
+        <a href="#pre-final" class="card-img-wrapper" title="Snoopy flotando">
+          <img src="../imagenes/1050535050599998272.jpg" alt="Snoopy flotando" class="step-img blend-multiply interactive-img">
+        </a>
+        <h2 class="section-title">Flotando de felicidad 🎈</h2>
+      </div>
+
+      <div class="emotions-rain-wrapper">
+        <h3 class="emotions-rain-title">✨ Lluvia de emociones que siento estando a tu lado ✨</h3>
+        <div class="emotions-rain-stage" id="emotionsRainStage"></div>
+      </div>
+
+      <div class="pergamino-container">
+        <div class="pergamino-seal" id="pergaminoBtn3">
+          <div class="seal-icon">📜</div>
+          <div class="seal-text">
+            <h3>Última carta antes del final</h3>
+            <p>Haz clic para abrir el pergamino 💌</p>
+          </div>
+          <span class="arrow-indicator">▼</span>
+        </div>
+
+        <div class="pergamino-content" id="pergaminoLetter3">
+          <div class="pergamino-paper">
+            <div class="pergamino-border">
+              <p class="letter-text">
+                Holaaa, esta es mi ultima carta antes de llegar al final, quiero decirte que me hace muy feliz poder compartir contigo y se me hace mucha ilusion seguir haciendolo por mucho tiempo mas, quiero decirte que mi corazón salta de alegria cuando comparte tiempo contigo, cuando me demuestras cariño y cuando me miran esos hermosos ojos, que para mi son estrellas, estrellas que iluminan con una luz unica e inigualable, una luz que me transmite tranquilidad y amor, una luz que para mi es una maravilla al observar... desde aca te digo que para mi eres muy importante, me interesas demasiado, te quiero demasiado y te e llegado hasta amar, por que eres la primera que decido por mi mismo amar, eres la primera que decidi esperar y eres la primera por la que realmente decidi cambiar... No pasa nada si no sientes lo mismo aunque realmente espero que lo sientas, y bien, ahora si podemos avanzar hasta la sorpresa final...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="story-card interactive-card">
+          <span class="card-number">01</span>
+          <p>Estar a tu lado hace que todo se sienta ligero, bonito y lleno de buena energía. 🎈</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">02</span>
+          <p>Siento que puedo volar sin despegar los pies del suelo cada vez que te me acercas. ☁️</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">03</span>
+          <p>Has convertido cada instante en un bonito recuerdo que guardo con mucho cariño. ✨</p>
+        </div>
+        <div class="story-card interactive-card">
+          <span class="card-number">04</span>
+          <p>Y ahora hemos llegado al momento donde quiero hacerte una pregunta muy especial... ❤️</p>
+        </div>
+      </div>
+
+      <div class="acrostic-container">
+        <h3 class="acrostic-title">Lo que representas... 🎈</h3>
+        <div class="acrostic-list">
+          <div class="acrostic-item"><span class="letter">V</span>ales cada segundo, cada espera y cada suspiro.</div>
+          <div class="acrostic-item"><span class="letter">I</span>nspiras mis mejores deseos e intenciones.</div>
+          <div class="acrostic-item"><span class="letter">D</span>eseo continuar construyendo lindos momentos a tu lado.</div>
+          <div class="acrostic-item"><span class="letter">A</span>precio infinitamente haber cruzado caminos contigo.</div>
+        </div>
+      </div>
+
+      <div class="pre-final-card">
+        <div class="pre-final-icon">💌</div>
+        <p class="pre-final-text">
+          Enserio Te quiero y demasiado y espero que seas muy feliz, asi sea conmigo o no lo sea y cumplas todos tus maravillosos sueños... 💕
+        </p>
+      </div>
+
+      <!-- PROPUESTA FINAL & LABERINTO -->
+      <div class="final-proposal" id="propuesta">
+        <div class="maze-wrapper" id="mazeWrapper">
+          <h3 class="maze-main-title">🗺️ El Laberinto de los Recuerdos 🗺️</h3>
+          <p class="maze-subtitle">Toca los botones para guiar al corazón (❤️) a la bandera (🚩).</p>
+
+          <div class="world-tabs">
+            <span class="world-tab active" id="tabWorld1">Mundo 1 💘</span>
+            <span class="world-tab" id="tabWorld2">Mundo 2 🌹</span>
+            <span class="world-tab" id="tabWorld3">Mundo 3 🎈</span>
+          </div>
+
+          <div class="maze-lagoon-banner" id="mazeLagoonBanner">
+            <span id="lagoonText">💧 Laguna de Recuerdos: "Todo empezó con una tarea y la inquietud de conocerte..."</span>
+          </div>
+
+          <div class="maze-board" id="mazeBoard"></div>
+
+          <div class="maze-controls">
+            <button class="maze-btn" id="mUp">▲</button>
+            <div class="maze-controls-row">
+              <button class="maze-btn" id="mLeft">◀</button>
+              <button class="maze-btn" id="mDown">▼</button>
+              <button class="maze-btn" id="mRight">▶</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-question-container hidden" id="finalQuestionContainer">
+          <div class="final-img-wrapper">
+            <img src="../imagenes/784259722645268620.jpg" alt="Snoopy enamorado" class="final-img blend-multiply interactive-img">
+          </div>
+          <h2 class="final-question">¿Quieres ser mi novia? ❤️</h2>
+          <p class="final-subtext">Me harías la persona más feliz del mundo.</p>
+
+          <div class="final-buttons-wrapper">
+            <button id="btnFinalYes" class="btn-proposal btn-p-yes">¡SÍ! ❤️</button>
+            <button id="btnFinalNo" class="btn-proposal btn-p-no">No</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE BLOQUEO / CUENTA REGRESIVA EN TIEMPO REAL -->
+  <div class="modal-overlay hidden" id="countdownModal">
+    <div class="modal-card countdown-card">
+      <div class="lock-icon-big">🔒</div>
+      <h3 id="countdownTitle" class="countdown-modal-title">Día Bloqueado</h3>
+      <p id="countdownSubtitle" class="countdown-modal-sub">Esta sorpresa aún no está disponible.</p>
+      
+      <div class="timer-box">
+        <span class="timer-label">Falta para desbloquear:</span>
+        <div id="countdownTimer" class="timer-digits">00h 00m 00s</div>
+      </div>
+
+      <button class="btn btn-yes" onclick="closeCountdownModal()">Entendido ✨</button>
+    </div>
+  </div>
+
+  <!-- BANNER RESPUESTA: NO -->
+  <div class="modal-overlay hidden" id="bannerNoModal">
+    <div class="result-banner-card banner-no-style">
+      <div class="broken-heart-anim">💔</div>
+      <div class="tears-rain" id="tearsRain"></div>
+      <p class="result-banner-text">
+        Esta bien, lo entiendo... igual gracias por pasar tiempo conmigo y aun mas por darme aun asi sea una gota de esperanza... Te quiero y sigue cuidadote, creciendo y logrando cada cosa que me has contado...
+      </p>
+      <button class="btn-close-banner" onclick="document.getElementById('bannerNoModal').classList.add('hidden')">Cerrar con cariño 🕊️</button>
+    </div>
+  </div>
+
+  <!-- BANNER RESPUESTA: SÍ -->
+  <div class="modal-overlay hidden" id="bannerYesModal">
+    <div class="result-banner-card banner-yes-style">
+      <div class="blue-heart-pulse">💙</div>
+      <div class="confetti-container" id="confettiContainer"></div>
+      <p class="result-banner-text">
+        Gracias por darme la oportunidad enseriooo, muchas gracias prometo seguir mejorando como novio, pareja, compañero y mejor amigo... Gracias por aceptarme..
+      </p>
+      <button class="btn-close-banner" id="btnCloseYesBanner">¡Te amo mi Cielo! ✨</button>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================================
+    // CONFIGURACIÓN EXACTA DE FECHAS (2 al 6 de Noviembre de 2026)
+    // ==========================================================
+    // Nota: El mes 10 en JavaScript equivale a Noviembre (0 = Enero, 10 = Noviembre)
+    const dayDates = {
+      1: new Date(2026, 10, 2, 0, 0, 0), // Lunes 2 de Noviembre de 2026 (Hoy)
+      2: new Date(2026, 10, 3, 0, 0, 0), // Martes 3 de Noviembre de 2026
+      3: new Date(2026, 10, 4, 0, 0, 0), // Miércoles 4 de Noviembre de 2026
+      4: new Date(2026, 10, 5, 0, 0, 0), // Jueves 5 de Noviembre de 2026
+      5: new Date(2026, 10, 6, 0, 0, 0)  // Viernes 6 de Noviembre de 2026
+    };
+
+    let countdownInterval = null;
+
+    // Verificar en tiempo real qué días están desbloqueados y actualizar tarjetas en la vista general
+    function checkUnlockedDays() {
+      const currentTime = new Date().getTime();
+      let totalUnlocked = 0;
+
+      for (let day = 1; day <= 5; day++) {
+        const doorCard = document.getElementById(`door${day}`);
+        const hint = document.getElementById(`hint${day}`);
+        const statusIcon = doorCard.querySelector('.door-status-icon');
+
+        if (currentTime >= dayDates[day].getTime()) {
+          doorCard.classList.remove('locked');
+          doorCard.classList.add('unlocked');
+          statusIcon.textContent = '🔓';
+          hint.textContent = '¡Disponible para ver! ✨';
+          totalUnlocked++;
+        } else {
+          doorCard.classList.add('locked');
+          doorCard.classList.remove('unlocked');
+          statusIcon.textContent = '🔒';
+          
+          const diff = dayDates[day].getTime() - currentTime;
+          const hoursLeft = Math.floor(diff / (1000 * 60 * 60));
+          if (hoursLeft >= 24) {
+            const daysLeft = Math.floor(hoursLeft / 24);
+            hint.textContent = `Desbloquea en ${daysLeft} día(s)`;
+          } else {
+            hint.textContent = `Desbloquea en ${hoursLeft} horas`;
+          }
+        }
+      }
+
+      // Actualizar la barra de progreso general
+      const progress = Math.round((totalUnlocked / 5) * 100);
+      document.getElementById('progressFill').style.width = `${progress}%`;
+      document.getElementById('progressPercentage').textContent = `${progress}%`;
+    }
+
+    // Actualización periódica en tiempo real cada 10 segundos para la vista general
+    setInterval(checkUnlockedDays, 10000);
+
+    function openAdventDay(day) {
+      const currentTime = new Date().getTime();
+      const targetTime = dayDates[day].getTime();
+
+      if (currentTime >= targetTime) {
+        document.getElementById('adventHub').classList.add('hidden');
+        document.querySelectorAll('.day-section').forEach(sec => sec.classList.add('hidden'));
+        
+        const daySec = document.getElementById(`day${day}Content`);
+        daySec.classList.remove('hidden');
+        daySec.scrollIntoView({ behavior: 'smooth' });
+
+        if (day === 2) updateOrbitPoems();
+        if (day === 3) init100ReasonsCloud();
+        if (day === 5) {
+          initEmotionsRain();
+          initMazeGame();
+        }
+      } else {
+        showCountdownModal(day, targetTime);
+      }
+    }
+
+    function backToHub() {
+      document.querySelectorAll('.day-section').forEach(sec => sec.classList.add('hidden'));
+      const hub = document.getElementById('adventHub');
+      hub.classList.remove('hidden');
+      hub.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal con cuenta regresiva viva por segundo
+    function showCountdownModal(day, targetTime) {
+      const modal = document.getElementById('countdownModal');
+      const dayNames = ['', 'Lunes 2 Nov', 'Martes 3 Nov', 'Miércoles 4 Nov', 'Jueves 5 Nov', 'Viernes 6 Nov'];
+      
+      document.getElementById('countdownTitle').textContent = `Día ${day} (${dayNames[day]}) Bloqueado 🔒`;
+      document.getElementById('countdownSubtitle').textContent = `Esta sorpresa estará disponible el ${dayNames[day]} a las 12:00 AM.`;
+      
+      modal.classList.remove('hidden');
+
+      if (countdownInterval) clearInterval(countdownInterval);
+
+      function updateTimer() {
+        const nowMs = new Date().getTime();
+        const diff = targetTime - nowMs;
+
+        if (diff <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('countdownTimer').textContent = "¡Ya disponible! 🎉";
+          checkUnlockedDays();
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (days > 0) {
+          document.getElementById('countdownTimer').textContent = 
+            `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+        } else {
+          document.getElementById('countdownTimer').textContent = 
+            `${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+        }
+      }
+
+      updateTimer();
+      countdownInterval = setInterval(updateTimer, 1000);
+    }
+
+    function closeCountdownModal() {
+      document.getElementById('countdownModal').classList.add('hidden');
+      if (countdownInterval) clearInterval(countdownInterval);
+    }
+
+    // LÓGICA DE NAVEGACIÓN E INTERACCIÓN
+    const snoopyStart = document.getElementById('snoopyStart');
+    const welcomeModal = document.getElementById('welcomeModal');
+    const btnYes = document.getElementById('btnYes');
+    const btnNo = document.getElementById('btnNo');
+    const mainContent = document.getElementById('mainContent');
+    const progressBarContainer = document.getElementById('progressBarContainer');
+
+    snoopyStart.addEventListener('click', () => {
+      welcomeModal.classList.remove('hidden');
+    });
+
+    const moveNoButton = () => {
+      const padding = 20;
+      const maxX = window.innerWidth - btnNo.offsetWidth - padding;
+      const maxY = window.innerHeight - btnNo.offsetHeight - padding;
+
+      const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+      btnNo.style.position = 'fixed';
+      btnNo.style.left = `${randomX}px`;
+      btnNo.style.top = `${randomY}px`;
+    };
+
+    btnNo.addEventListener('mouseover', moveNoButton);
+    btnNo.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    btnYes.addEventListener('click', () => {
+      welcomeModal.classList.add('hidden');
+      mainContent.classList.remove('hidden');
+      progressBarContainer.style.display = 'block';
+      
+      checkUnlockedDays();
+      initScrollAnimations();
+
+      setTimeout(() => {
+        document.getElementById('adventHub').scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    });
+
+    function initScrollAnimations() {
+      const observerOptions = { threshold: 0.15 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in-section').forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    // POEMAS GIRATORIOS
+    const poemPool = [
+      "En la inmensidad de tus ojos encontré mi lugar favorito en el mundo. ✨",
+      "No busco la perfección, busco caminar a tu lado todos los días. ❤️",
+      "Tu risa es la melodía que calma cualquier día difícil. 🌹",
+      "Cada detalle tuyo es un motivo más para querer quedarme. 🕊️",
+      "Eres esa coincidencia bonita que no cambiaría por nada. 🌸",
+      "A tu lado, el tiempo pasa volando y la felicidad se queda. 🎈",
+      "Guardé en mi alma cada mirada y cada momento compartido. 📜",
+      "Tu presencia transforma lo ordinario en algo extraordinario. ✨",
+      "Si volviera a empezar el día, te elegiría una y otra vez. 💖",
+      "Hablar contigo es tener la paz que tanto necesitaba. 🌙"
+    ];
+
+    let currentPoemIndex = 0;
+    function updateOrbitPoems() {
+      const cards = document.querySelectorAll('.poem-card');
+      cards.forEach(card => card.classList.add('magic-dissolve'));
+
+      setTimeout(() => {
+        cards.forEach((card) => {
+          const p = card.querySelector('.poem-text');
+          if (p) {
+            p.textContent = poemPool[currentPoemIndex];
+            currentPoemIndex = (currentPoemIndex + 1) % poemPool.length;
+          }
+        });
+        cards.forEach(card => card.classList.remove('magic-dissolve'));
+      }, 800);
+    }
+    setInterval(updateOrbitPoems, 12000);
+
+    const setupPergamino = (btnId, letterId) => {
+      const btn = document.getElementById(btnId);
+      const letter = document.getElementById(letterId);
+      if (btn && letter) {
+        btn.addEventListener('click', () => {
+          letter.classList.toggle('open');
+          btn.classList.toggle('open');
+        });
+      }
+    };
+
+    setupPergamino('pergaminoBtn1', 'pergaminoLetter1');
+    setupPergamino('pergaminoBtn2', 'pergaminoLetter2');
+    setupPergamino('pergaminoBtn3', 'pergaminoLetter3');
+
+    // DARDOS
+    const dartReasons = [
+      "Sonrío cada vez que te veo ❤️",
+      "Me gusta verte sonreír y reír 😊",
+      "Me encanta ver tus hermosos ojos ✨",
+      "Tu voz transmite una paz inigualable 🕊️",
+      "Tus abrazos son mi refugio perfecto 🫂",
+      "Tu autenticidad te hace la persona más hermosa 🌸",
+      "Disfruto cada segundo conversando contigo 💬",
+      "Haces que cualquier momento triste desaparezca ☀️"
+    ];
+
+    let currentDartIndex = 0;
+    const btnThrowDart = document.getElementById('btnThrowDart');
+    const dartTarget = document.getElementById('dartTarget');
+    const flyingDart = document.getElementById('flyingDart');
+    const unlockedReasonsContainer = document.getElementById('unlockedReasonsContainer');
+
+    function throwDart() {
+      btnThrowDart.disabled = true;
+      flyingDart.classList.add('throwing');
+
+      setTimeout(() => {
+        flyingDart.classList.remove('throwing');
+        dartTarget.classList.add('hit-shake');
+        
+        setTimeout(() => dartTarget.classList.remove('hit-shake'), 400);
+
+        if (currentDartIndex < dartReasons.length) {
+          const badge = document.createElement('div');
+          badge.className = 'reason-badge pop-in';
+          badge.innerHTML = `<span class="badge-num">🎯 #${currentDartIndex + 1}</span> ${dartReasons[currentDartIndex]}`;
+          unlockedReasonsContainer.appendChild(badge);
+          currentDartIndex++;
+        }
+
+        if (currentDartIndex >= dartReasons.length) {
+          btnThrowDart.textContent = '¡Todas las razones descubiertas! ✨';
+        } else {
+          btnThrowDart.disabled = false;
+        }
+      }, 600);
+    }
+
+    if (btnThrowDart && dartTarget) {
+      btnThrowDart.addEventListener('click', throwDart);
+      dartTarget.addEventListener('click', throwDart);
+    }
+
+    // 100 RAZONES
+    const baseReasons = [
+      "Tu sonrisa deslumbrante", "Tus hermosos ojos", "Tu forma de hablar", "Tu amabilidad infinita",
+      "Tu sinceridad", "Tu dulzura sin igual", "La paz que me transmites", "Tu risa contagiosa",
+      "Cómo me miras", "Tus abrazos reconfortantes", "Tu sentido del humor", "Tu ternura",
+      "Tu inteligencia", "Tu paciencia", "Cómo cuidas cada detalle", "Tu forma de ser tan auténtica",
+      "Tu voz tranquilizadora", "La magia que irradias", "Cómo me haces sentir único", "Tu gran corazón",
+      "Tu belleza interior y exterior", "Compartir risas contigo", "Nuestras pláticas interminables", "Tus gestos tiernos",
+      "Tu apoyo incondicional", "Cómo haces brillar mis días", "Tu sencillez encantadora", "Tu toque de inocencia",
+      "Lo detallista que eres", "El brillo de tus ojos cuando estás feliz", "Tu compañía inolvidable", "Tu forma de pensar",
+      "La energía positiva que transmites", "Tu madurez", "Tu dulce manera de decir las cosas", "Tu comprensión",
+      "Tu empatía", "Hacer planes juntos", "Tu aroma único", "Tu estilo propio",
+      "Cómo me inspiras a ser mejor", "Tus abrazos inesperados", "Tu forma de caminar", "Tu sonrisa cuando te da pena",
+      "Tu elegancia natural", "Tu espontaneidad", "El cariño con el que escuchas", "Tu mirada brillante",
+      "La confianza que generas", "Tu toque único de ternura", "Tu paciencia al enseñarme algo", "Tus chistes",
+      "Tu capacidad de amar", "La alegría de ver tu mensaje", "Tus muecas divertidas", "Lo bien que se siente estar a tu lado",
+      "Tu bondad", "Tu calidez humana", "Tu creatividad", "Tu lealtad",
+      "Tu paz interior", "Cómo iluminas cualquier espacio", "Tus respuestas dulces", "Tus abrazos cálidos",
+      "La forma en que dices mi nombre", "Tu toque de picardía", "El brillo de tu piel", "Tus manos suaves",
+      "Tu risa espontánea", "Tu mirada profunda", "Tu manera de motivarme", "Tu dulzura en cada gesto",
+      "Tu sencillez", "Tu compasión", "Tu sensibilidad tan bonita", "Tu alegría contagiosa",
+      "Tu forma de ver la vida", "Tu serenidad", "Tus consejos atinados", "Tu capacidad de escuchar",
+      "Tus guiños", "Tu ternura al hablar", "La emoción de volverte a ver", "Tu fidelidad",
+      "El calor de tus besos", "Tu cariño genuino", "Lo especial que me haces sentir", "Tus caricias",
+      "Tu forma de hacerme sonreír", "Tu complicidad", "Tu apoyo inquebrantable", "Tu amor puro",
+      "Tu compañía reconfortante", "El misterio encantador de tus ojos", "Tu fuerza interior", "Tu presencia que lo cambia todo",
+      "Tu esencia inolvidable", "Nuestra conexión tan bonita", "Hacer que cada día valga la pena", "Simplemente por ser tú, mi Cielo"
+    ];
+
+    function init100ReasonsCloud() {
+      const container = document.getElementById('reasonsCloudStage');
+      if (!container) return;
+      container.innerHTML = '';
+      
+      baseReasons.forEach((reason, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'reason-orbit-tag';
+        tag.innerHTML = `<span>#${index + 1}</span> ${reason}`;
+        
+        const randomX = Math.floor(Math.random() * 80);
+        const randomY = Math.floor(Math.random() * 80);
+        const randomDelay = (Math.random() * 10).toFixed(1);
+        const randomDuration = (15 + Math.random() * 15).toFixed(1);
+
+        tag.style.left = `${randomX}%`;
+        tag.style.top = `${randomY}%`;
+        tag.style.animationDelay = `${randomDelay}s`;
+        tag.style.animationDuration = `${randomDuration}s`;
+
+        container.appendChild(tag);
+      });
+    }
+
+    // LLUVIA DE EMOCIONES
+    const emotionWords = [
+      "Felicidad ✨", "Amor ❤️", "Paz 🕊️", "Armonía 🌸", "Ilusión 🌟",
+      "Tranquilidad 🌙", "Alegría 😊", "Ternura 💕", "Cariño 🧸", "Seguridad 🛡️",
+      "Esperanza 🌈", "Calidez 🔥", "Magia 🪄", "Gratitud 🙏", "Deseo 💖"
+    ];
+
+    function initEmotionsRain() {
+      const container = document.getElementById('emotionsRainStage');
+      if (!container) return;
+      container.innerHTML = '';
+
+      emotionWords.forEach((word) => {
+        const drop = document.createElement('div');
+        drop.className = 'emotion-drop';
+        drop.textContent = word;
+
+        const leftPos = Math.floor(Math.random() * 80);
+        const animDelay = (Math.random() * 8).toFixed(1);
+        const animDuration = (6 + Math.random() * 6).toFixed(1);
+
+        drop.style.left = `${leftPos}%`;
+        drop.style.animationDelay = `${animDelay}s`;
+        drop.style.animationDuration = `${animDuration}s`;
+
+        container.appendChild(drop);
+      });
+    }
+
+    // LABERINTO DE 3 MUNDOS
+    let currentWorld = 1;
+    let playerPos = { r: 0, c: 0 };
+
+    const mazeMaps = {
+      1: [
+        [0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1],
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 1, 'G']
+      ],
+      2: [
+        [0, 1, 0, 0, 0],
+        [0, 1, 0, 1, 0],
+        [0, 0, 0, 1, 0],
+        [1, 1, 0, 1, 0],
+        [0, 0, 0, 0, 'G']
+      ],
+      3: [
+        [0, 0, 0, 1, 0],
+        [1, 1, 0, 1, 0],
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 'G']
+      ]
+    };
+
+    const worldDescriptions = {
+      1: '💧 Laguna de Recuerdos: "Todo empezó con una tarea y la inquietud de conocerte..."',
+      2: '🌹 Laguna de Razones: "Sonrisas, mirada brillante y paz inigualable a tu lado..."',
+      3: '🎈 Laguna de Emociones: "Felicidad, amor, ilusión y ganas de cuidarte siempre..."'
+    };
+
+    function initMazeGame() {
+      renderMaze();
+      
+      document.getElementById('mUp').onclick = () => movePlayer(-1, 0);
+      document.getElementById('mDown').onclick = () => movePlayer(1, 0);
+      document.getElementById('mLeft').onclick = () => movePlayer(0, -1);
+      document.getElementById('mRight').onclick = () => movePlayer(0, 1);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') movePlayer(-1, 0);
+        if (e.key === 'ArrowDown') movePlayer(1, 0);
+        if (e.key === 'ArrowLeft') movePlayer(0, -1);
+        if (e.key === 'ArrowRight') movePlayer(0, 1);
+      });
+    }
+
+    function renderMaze() {
+      const board = document.getElementById('mazeBoard');
+      const lagoonText = document.getElementById('lagoonText');
+      if (!board) return;
+
+      board.innerHTML = '';
+      lagoonText.textContent = worldDescriptions[currentWorld];
+
+      document.getElementById('tabWorld1').classList.toggle('active', currentWorld === 1);
+      document.getElementById('tabWorld2').classList.toggle('active', currentWorld === 2);
+      document.getElementById('tabWorld3').classList.toggle('active', currentWorld === 3);
+
+      const map = mazeMaps[currentWorld];
+
+      for (let r = 0; r < 5; r++) {
+        for (let c = 0; c < 5; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'maze-cell';
+          
+          if (map[r][c] === 1) cell.classList.add('wall');
+          if (map[r][c] === 'G') {
+            cell.classList.add('goal');
+            cell.textContent = '🚩';
+          }
+          if (r === playerPos.r && c === playerPos.c) {
+            cell.classList.add('player');
+            cell.textContent = '❤️';
+          }
+
+          board.appendChild(cell);
+        }
+      }
+    }
+
+    function movePlayer(dr, dc) {
+      const map = mazeMaps[currentWorld];
+      const nr = playerPos.r + dr;
+      const nc = playerPos.c + dc;
+
+      if (nr >= 0 && nr < 5 && nc >= 0 && nc < 5 && map[nr][nc] !== 1) {
+        playerPos.r = nr;
+        playerPos.c = nc;
+        renderMaze();
+
+        if (map[nr][nc] === 'G') {
+          setTimeout(() => {
+            if (currentWorld < 3) {
+              currentWorld++;
+              playerPos = { r: 0, c: 0 };
+              renderMaze();
+            } else {
+              document.getElementById('mazeWrapper').classList.add('hidden');
+              document.getElementById('finalQuestionContainer').classList.remove('hidden');
+              document.getElementById('finalQuestionContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 300);
+        }
+      }
+    }
+
+    // RESPUESTAS SÍ / NO Y CINEMÁTICA DE DÉJÀ VU
+    const btnFinalNo = document.getElementById('btnFinalNo');
+    const btnFinalYes = document.getElementById('btnFinalYes');
+    const btnCloseYesBanner = document.getElementById('btnCloseYesBanner');
+    const bannerNoModal = document.getElementById('bannerNoModal');
+    const bannerYesModal = document.getElementById('bannerYesModal');
+    const oblivionOverlay = document.getElementById('oblivionOverlay');
+
+    if (btnFinalNo) {
+      btnFinalNo.addEventListener('click', () => {
+        bannerNoModal.classList.remove('hidden');
+        createTearsAnimation();
+      });
+    }
+
+    if (btnFinalYes) {
+      btnFinalYes.addEventListener('click', () => {
+        bannerYesModal.classList.remove('hidden');
+        createConfettiAnimation();
+      });
+    }
+
+    // AL CERRAR EL BANNER DE SÍ -> DÉJÀ VU & RESETEO COMPLETO
+    if (btnCloseYesBanner) {
+      btnCloseYesBanner.addEventListener('click', () => {
+        bannerYesModal.classList.add('hidden');
+        
+        setTimeout(() => {
+          oblivionOverlay.classList.remove('hidden');
+          oblivionOverlay.classList.add('active');
+
+          setTimeout(() => {
+            currentWorld = 1;
+            playerPos = { r: 0, c: 0 };
+            currentDartIndex = 0;
+            if (unlockedReasonsContainer) unlockedReasonsContainer.innerHTML = '';
+            if (btnThrowDart) {
+              btnThrowDart.disabled = false;
+              btnThrowDart.textContent = '¡Lanzar Dardo! 🎯';
+            }
+            
+            mainContent.classList.add('hidden');
+            document.getElementById('mazeWrapper').classList.remove('hidden');
+            document.getElementById('finalQuestionContainer').classList.add('hidden');
+            progressBarContainer.style.display = 'none';
+
+            window.scrollTo({ top: 0, behavior: 'instant' });
+
+            setTimeout(() => {
+              oblivionOverlay.classList.remove('active');
+              setTimeout(() => {
+                oblivionOverlay.classList.add('hidden');
+              }, 800);
+            }, 1200);
+
+          }, 3500);
+
+        }, 400);
+      });
+    }
+
+    function createTearsAnimation() {
+      const container = document.getElementById('tearsRain');
+      if (!container) return;
+      container.innerHTML = '';
+      for (let i = 0; i < 25; i++) {
+        const tear = document.createElement('div');
+        tear.className = 'tear-drop';
+        tear.textContent = '💧';
+        tear.style.left = `${Math.random() * 90}%`;
+        tear.style.animationDelay = `${(Math.random() * 2).toFixed(1)}s`;
+        container.appendChild(tear);
+      }
+    }
+
+    function createConfettiAnimation() {
+      const container = document.getElementById('confettiContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      const colors = ['#ff4b72', '#ff7597', '#3a86ff', '#00f5d4', '#fee440'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = `${Math.random() * 95}%`;
+        confetti.style.animationDelay = `${(Math.random() * 2).toFixed(1)}s`;
+        container.appendChild(confetti);
+      }
+    }
+  </script>
+</body>
+</html>
